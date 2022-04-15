@@ -1,0 +1,263 @@
+1. How to add comments on css?
+A. /* comments */
+
+
+2. Why do we use pseudo-class?
+A. A CSS pseudo-class is a keyword added to a selector that specifies a special state of the selected element(s). For example, :hover can be used to change a button's color when the user's pointer hovers over it.
+Pseudo-classes let us apply a style to an element not only in relation to the content of the document tree, but also in relation to external factors like the history of the navigator (:visited, for example), the status of its content (like :checked on certain form elements), or the position of the mouse (like :hover, which lets you know if the mouse is over an element or not).
+
+
+3. How is specificity applied?
+A. Specificity is the means by which browsers decide which CSS property values are the most relevant to an element and, therefore, will be applied. Specificity is based on the matching rules which are composed of different sorts of CSS selectors.
+The following list of selector types increases by specificity:
+a. Type selectors (e.g., h1) and pseudo-elements (e.g., ::before).
+b. Class selectors (e.g., .example), attributes selectors (e.g., [type="radio"]) and pseudo-classes (e.g., :hover).
+c. ID selectors (e.g., #example).
+Universal selector (*), combinators (+, >, ~, " ", ||) and negation pseudo-class (:not()) have no effect on specificity. (The selectors declared inside :not() do, however.)
+X-0-0: The number of ID selectors
+O-Y-O: The number of class selectors, attributes selectors, and pseudo-classes
+0-0-Z: The number of element (a.k.a. type) selectors and pseudo-elements
+*, +, >, : Universal selector and combinators do not increase specificity
+:not(x): Negation selector has no value. Argument increases specificity
+1-0-0-0-0: !important
+
+
+4. What method allows an element to be moved from its current position?
+A. Positioning allows us to take elements out of normal document flow and make them behave differently, for example, by sitting on top of one another or by always remaining in the same place inside the browser viewport.
+a. Static positioning
+Static positioning is the default that every element gets. It just means "put the element into its normal position in the document flow — nothing special to see here.
+b. Relative positioning
+This is very similar to static positioning, except that once the positioned element has taken its place in the normal flow, we can then modify its final position, including making it overlap other elements on the page. top, bottom, left, and right are used alongside position to specify exactly where to move the positioned element to. 
+c. Absolute positioning
+Here, the gap where the positioned element should be in the document flow is no longer there. An absolutely positioned element no longer exists in the normal document flow. Instead, it sits on its own layer separate from everything else. This is very useful: it means that we can create isolated UI features that don't interfere with the layout of other elements on the page. For example, popup information boxes, control menus, rollover panels, UI features that can be dragged and dropped anywhere on the page, and so on. They specify the distance the element should be from each of the containing element's sides. 
+z-index
+When elements start to overlap, z-index determines which elements appear over others and which elements appear under others.
+d. Fixed positioning
+This works in exactly the same way as absolute positioning, with one key difference: whereas absolute positioning fixes an element in place relative to its nearest positioned ancestor (the initial containing block if there isn't one), fixed positioning usually fixes an element in place relative to the visible portion of the viewport.
+e. Sticky positioning
+This is basically a hybrid between relative and fixed position. It allows a positioned element to act like it's relatively positioned until it's scrolled to a certain threshold (e.g., 10px from the top of the viewport), after which it becomes fixed. An interesting and common use of position: sticky is to create a scrolling index page where different headings stick to the top of the page as they reach it.
+
+
+5. What properties does flex model have?
+A. flex-direction : row, row-reverse, column, column-reverse
+The flex-basis property is set to auto.
+The flex-wrap property is set to nowrap.
+flex-flow: flex-direction and flex-wrap
+Properties applied to flex items
+flex-grow
+flex-shrink
+flex-basis
+flex : flex-grow - flex-shrink - flex-basis.
+The align-items property will align the items on the cross axis.
+align-items : stretch, flex-start, flex-end, center
+The justify-content property is used to align the items on the main axis, the direction in which flex-direction has set the flow.
+justify-content : flex-start, flex-end, center, space-around, space-between, space-evenly
+
+
+6. What is the difference between flex and grids?
+A. Grid is made for two-dimensional layout while Flexbox is for one.
+Flexbox works on content while the Grid is based on the layout.
+Flexbox offers greater control over alignment and space distribution between items. Being one-dimensional, Flexbox only deals with either columns or rows.
+Grid has two-dimension layout capabilities which allow flexible widths as a unit of length. This compensates for the limitations in Flex.
+Flex Direction allows developers to align elements vertically or horizontally, which is used when developers create and reverse rows or columns.
+CSS Grid deploys fractional measure units for grid fluidity and auto-keyword functionality to automatically adjust columns or rows.
+
+
+7. Give an example where we have to use grids and where you have to use flexbox?
+A. Grid is used when the content is present in both rows and colums forming a 2d metrix like structure. Flexbox is used when the content is to be arrange in single row or column.
+
+
+8. Give an example where you cannot use flexbox, and you can only use grids?
+A. When the data is present is diffrent rows and columns, and there can be overlap of two or more colums to form a single block. Than in this case flexbox cannot be used and we have to use grid.
+
+
+9. What are combinators? give examples of how you can use them
+A. The final selectors we will look at are called combinators, because they combine other selectors in a way that gives them a useful relationship to each other and the location of content in the document.
+Descendant combinator : single space (" ")  => .box p {color: red; } 
+Child combinator :  (>) => article > p
+Adjacent sibling combinator : (+)  => p + img
+General sibling combinator : (~) =>  p ~ img
+ul > li[class="a"]  {  }
+
+10. What does object-fit do?
+A. The CSS object-fit property is used to specify how an <img> or <video> should be resized to fit its container. This property tells the content to fill the container in a variety of ways; such as "preserve that aspect ratio" or "stretch up and take up as much space as possible".
+object-fit: contain;
+object-fit: cover;
+object-fit: fill;
+object-fit: none;
+object-fit: scale-down;
+
+
+11. What does rotate do?
+A. The rotate() CSS function defines a transformation that rotates an element around a fixed point on the 2D plane, without deforming it. Its result is a <transform-function> data type.
+The fixed point that the element rotates around — mentioned above — is also known as the transform origin. This defaults to the center of the element, but you can set your own custom transform origin using the transform-origin property.
+    transform: rotate(45deg);
+
+
+12. What rule can be used to define animations ?
+A. The animation shorthand CSS property applies an animation between styles. It is a shorthand for animation-name, animation-duration, animation-timing-function, animation-delay, animation-iteration-count, animation-direction, animation-fill-mode, and animation-play-state.
+Ex. animation: 3s ease-in 1s infinite reverse both slidein;
+
+
+
+13.When working with attribute selectors, how can you select elements which contain a particular attribute value?
+A. [attribute="value"]
+[attribute]	[target]	Selects all elements with a target attribute
+[attribute=value]	[target=_blank]	Selects all elements with target="_blank"
+[attribute~=value]	[title~=flower]	Selects all elements with a title attribute containing the word "flower"
+[attribute|=value]	[lang|=en]	Selects all elements with a lang attribute value starting with "en"
+[attribute^=value]	a[href^="https"]	Selects every <a> element whose href attribute value begins with "https"
+[attribute$=value]	a[href$=".pdf"]	Selects every <a> element whose href attribute value ends with ".pdf"
+[attribute*=value]	a[href*="w3schools"]	Selects every <a> element whose href attribute value contains the substring "w3schools"
+
+
+14. What can be used to override properties of an element ?
+A. important! 
+
+
+15. How can you select every alternate elements in a list of elements using css?
+A. 
+container:nth-child(odd)
+{
+    color: green;
+}
+.text:nth-child(even)
+{ 
+      color:Red;
+}
+li:nth-child(2n) {
+  background: lightgreen;
+}
+li:nth-child(2n-1) {
+  background: lightgreen;
+}
+
+
+16. What is the ranking of selectors with respect to specificity ?
+A. Type selectors and pseudo-elements < Class selectors or attributes selectors and pseudo-classes < ID selectors < Inline Styling
+
+
+17. How can we apply same styles to multiple selectors?
+A. By seprating selectros by commas
+
+18. how to add comments on css?
+A. /* comments */
+
+
+19. Why do we use pseudo-class?
+A. A pseudo-class is used to define a special state of an element. For example, it can be used to: Style an element when a user mouses over it. Style visited and unvisited links differently.
+
+20. How is specificity applied?
+A. If there are two or more CSS rules that point to the same element, the selector with the highest specificity value will "win", and its style declaration will be applied to that HTML element. Think of specificity as a score/rank that determines which style declaration are ultimately applied to an element.
+
+21. What method allows an element to be moved from its current position?
+A.  transform: translate(200px);
+transform: translate(50%);
+
+22. What properties does flex model have?
+A. flex-grow
+flex-shrink
+flex-basis
+
+23. What are combinators? give examples of how you can use them
+A. A combinator is something that explains the relationship between the selectors.
+CSS selector can contain more than one simple selector. Between the simple selectors, we can include a combinator.
+There are four different combinators in CSS:
+descendant selector (space)
+child selector (>)
+adjacent sibling selector (+)
+general sibling selector (~)
+div ~ p {
+  background-color: yellow;
+}
+
+
+24. What does object-fit do?
+A. The CSS object-fit property is used to specify how an <img> or <video> should be resized to fit its container.
+object-fit: fill;
+object-fit: contain;
+object-fit: cover;
+object-fit: none;
+object-fit: scale-down;
+object-fit: inherit;
+object-fit: initial;
+object-fit: unset;
+
+
+25. What does rotate do?
+A. The rotate() CSS function defines a transformation that rotates an element around a fixed point on the 2D plane, without deforming it. Its result is a <transform-function> data type. The fixed point that the element rotates around — mentioned above — is also known as the transform origin.
+.tourne {
+  transform: rotate(45deg); 
+  background-color: pink;
+}
+
+
+26. What rule can be used to define animations ? 
+A. When you specify CSS styles inside the @keyframes rule, the animation will gradually change from the current style to the new style at certain times. To get an animation to work, you must bind the animation to an element. 
+div {
+  animation-name: example;
+  animation-duration: 4s;
+}
+@keyframes example {
+  from {background-color: red;}
+  to {background-color: yellow;}
+}
+
+
+27. When working with attribute selectors, how can you select elements which contain a particular attribute value?
+A. a[title] {
+  color: purple;
+}
+/* <a> elements with an href matching "https://example.org" */
+a[href="https://example.org"] {
+  color: green;
+}
+/* <a> elements with an href containing "example" */
+a[href*="example"] {
+  font-size: 2em;
+}
+/* <a> elements with an href ending ".org" */
+a[href$=".org"] {
+  font-style: italic;
+}
+/* <a> elements whose class attribute contains the word "logo" */
+a[class~="logo"] {
+  padding: 2px;
+}
+
+
+28. What does @media do?
+A. The @media CSS at-rule can be used to apply part of a style sheet based on the result of one or more media queries. With it, you specify a media query and a block of CSS to apply to the document if and only if the media query matches the device on which the content is being used.
+
+
+29. What can be used to override properties of an element?
+A.  Add another CSS rule with !important , and either give the selector a higher specificity (adding a tag, id or class to the selector), or add a CSS rule with the same selector at a later point than the existing one. This works because in a specificity tie, the last rule defined wins.
+
+
+30. How can you select every alternate elements in a list of elements using css?
+A. .text:nth-child(odd)
+{
+    color: green;
+}
+.text:nth-child(even)
+{ 
+      color:Red;
+}
+li:nth-of-type(2n) {
+  background: lightslategrey;
+}
+
+
+31. What is the ranking of selectors with respect to specificity?
+A. a. Type selectors (e.g., h1) and pseudo-elements (e.g., ::before).
+b. Class selectors (e.g., .example), attributes selectors (e.g., [type="radio"]) and pseudo-classes (e.g., :hover).
+c. ID selectors (e.g., #example).
+Universal selector (*), combinators (+, >, ~, " ", ||) and negation pseudo-class (:not()) have no effect on specificity. (The selectors declared inside :not() do, however.)
+
+
+32. how can we apply same styles to multiple selectors?
+A. We can apply same styles to multiple selectors by writing them one after the other seprated by commas.
+
+
+33. What are the differences between relative and absolute in CSS?
+A. The relative postion moves the element with respect to its initial positon without any other element occupying the space. The absolute position takes the element out the usual flow and places the element with respect to ites parent.
